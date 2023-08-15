@@ -1,5 +1,5 @@
 
-const CommunitiesPage = () => {
+const CommunitiesPage = async () => {
   return (
     <div>CommunitiesPage</div>
   )

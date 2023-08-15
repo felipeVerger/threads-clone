@@ -31,12 +31,6 @@ const LeftSidebar = () => {
               key={link.label}
               className={`leftsidebar_link relative ${isActive && "bg-primary-500"}`}
             >
-              {/* {link.label === "Activity" && notifications > 0 && (
-                <span 
-                  className='absolute -right-3 -top-3 bg-white w-6 h-6 rounded-full flex justify-center text-primary-500'>
-                  {notifications}
-                </span>
-              )} */}
               <Image
                 src={link.imgURL}
                 alt={link.label}

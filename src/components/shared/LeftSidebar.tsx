@@ -7,7 +7,11 @@ import React from 'react'
 import { usePathname, useRouter } from 'next/navigation';
 import { SignOutButton, SignedIn, useAuth } from '@clerk/nextjs'
 
-const LeftSidebar = () => {
+interface Props {
+  notifications: number
+}
+
+const LeftSidebar = ({ notifications}: Props) => {
   const router = useRouter();
   const pathname = usePathname();
   const { userId } = useAuth();
@@ -25,8 +29,14 @@ const LeftSidebar = () => {
             <Link
               href={link.route}
               key={link.label}
-              className={`leftsidebar_link ${isActive && "bg-primary-500"}`}
+              className={`leftsidebar_link relative ${isActive && "bg-primary-500"}`}
             >
+              {link.label === "Activity" && notifications > 0 && (
+                <span 
+                  className='absolute -right-3 -top-3 bg-white w-6 h-6 rounded-full flex justify-center text-primary-500'>
+                  {notifications}
+                </span>
+              )}
               <Image
                 src={link.imgURL}
                 alt={link.label}

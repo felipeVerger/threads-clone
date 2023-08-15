@@ -21,11 +21,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const user = await currentUser();
-  if (!user) return null
-  const userInfo = await fetchUser(user.id);
-  const activity = await fetchActivity(userInfo._id);
-  const notifications = activity.length;
+  // const user = await currentUser();
+  // if (!user) return null
+  // const userInfo = await fetchUser(user.id);
+  // const activity = await fetchActivity(userInfo._id);
+  // const notifications = activity.length;
 
   return (
     <ClerkProvider>
@@ -33,7 +33,7 @@ export default async function RootLayout({
         <body className={inter.className}>
           <Topbar/>
           <main className='flex flex-row'>
-            <LeftSidebar notifications={notifications}/>
+            <LeftSidebar />
             <section className='main-container'>
               <div className='w-full max-w-4xl'>
                 {children}
